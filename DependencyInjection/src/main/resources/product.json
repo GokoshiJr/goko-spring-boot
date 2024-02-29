@@ -1,0 +1,27 @@
+[
+  {
+    "id": 1,
+    "name": "Playstation 5 LG",
+    "price": 1
+  },
+  {
+    "id": 2,
+    "name": "Teclado Mecanico",
+    "price": 19
+  },
+  {
+    "id": 3,
+    "name": "Monitor HD",
+    "price": 25
+  },
+  {
+    "id": 4,
+    "name": "Mouse X",
+    "price": 6
+  },
+  {
+    "id": 5,
+    "name": "Platanitos Natuchips 150g",
+    "price": 6
+  }
+]
