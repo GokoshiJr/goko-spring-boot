@@ -8,7 +8,6 @@
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 
-	<groupId>com.gokoshi</groupId>
 	<artifactId>basics</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>basics</name>
