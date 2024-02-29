@@ -22,6 +22,7 @@
 	<modules>
 		<module>basics</module>
 		<module>DependencyInjection</module>
+		<module>HandleException</module>
 	</modules>
 
 	<dependencies>
