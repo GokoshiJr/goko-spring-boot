@@ -23,6 +23,7 @@
 		<module>basics</module>
 		<module>DependencyInjection</module>
 		<module>HandleException</module>
+		<module>Invoice</module>
 	</modules>
 
 	<dependencies>
