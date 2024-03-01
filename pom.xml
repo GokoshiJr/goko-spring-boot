@@ -25,7 +25,8 @@
 		<module>HandleException</module>
 		<module>Invoice</module>
 		<module>Web</module>
-	</modules>
+        <module>Interceptores</module>
+    </modules>
 
 	<dependencies>
 		<dependency>
