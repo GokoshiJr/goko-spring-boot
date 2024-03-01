@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title th:text="${info.title}"></title>
+</head>
+<body>
+    <h1 th:text="${info.subtitle}"></h1>
+    <ul>
+        <li th:text="${name}"></li>
+        <li th:text="${age}"></li>
+        <li th:text="${user.name}"></li>
+        <li th:text="${user.lastname}"></li>
+        <li th:if="${user.email}" th:text="${user.email}"></li>
+        <li th:if="${user.email == null}" th:text="${'no tiene correo registrado'}"></li>
+        <li th:text="${users.size()}"></li>
+    </ul>
+    <a th:href="@{/list}">Listado</a>
+    <a th:href="@{'/api/params/foo'(message=${user.name}, code=123)}">Foo</a>
+</body>
+</html>

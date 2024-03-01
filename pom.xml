@@ -24,6 +24,7 @@
 		<module>DependencyInjection</module>
 		<module>HandleException</module>
 		<module>Invoice</module>
+		<module>Web</module>
 	</modules>
 
 	<dependencies>
