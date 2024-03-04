@@ -26,4 +26,11 @@ public class HomeController {
         res.put("route", "foo");
         return res;
     }
+
+    @GetMapping("/bar")
+    public Map<String, String> bar() {
+        Map<String, String> res = new HashMap<>();
+        res.put("route", "bar");
+        return res;
+    }
 }
