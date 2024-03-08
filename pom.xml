@@ -26,6 +26,7 @@
 		<module>Invoice</module>
 		<module>Web</module>
         <module>Interceptores</module>
+        <module>TimeInterceptor</module>
     </modules>
 
 	<dependencies>
