@@ -27,7 +27,8 @@
 		<module>Web</module>
         <module>Interceptores</module>
         <module>TimeInterceptor</module>
-    </modules>
+		<module>Aspects</module>
+	</modules>
 
 	<dependencies>
 		<dependency>
