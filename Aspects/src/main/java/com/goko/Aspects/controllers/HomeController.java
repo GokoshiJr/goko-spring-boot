@@ -11,13 +11,30 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/v1")
 public class HomeController {
 
     HomeService homeService;
 
     public HomeController(HomeService homeService) {
         this.homeService = homeService;
+    }
+
+    @GetMapping("/math")
+    public ResponseEntity<?> math() throws Exception {
+        Map<String, String> res = new HashMap<>();
+        res.put("message", "login endpoint");
+        res.put("date", new Date().toString());
+        throw new Exception("Error");
+        // return new ResponseEntity<>(res, HttpStatus.OK);
+    }
+
+    @GetMapping("/login")
+    public ResponseEntity<?> login() {
+        Map<String, String> res = new HashMap<>();
+        res.put("message", "login endpoint");
+        res.put("date", new Date().toString());
+        return new ResponseEntity<>(res, HttpStatus.OK);
     }
 
     @GetMapping("/home")
