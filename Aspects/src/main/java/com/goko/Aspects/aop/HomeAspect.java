@@ -16,35 +16,44 @@ import java.util.Arrays;
 public class HomeAspect {
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
-    @AfterThrowing("execution(* com.goko.Aspects.controllers.HomeController.math())")
+    @Pointcut("execution(* com.goko.Aspects.controllers.HomeController.math())")
+    private void homeLoggerMathPointCut() {}
+
+    @Pointcut("execution(* com.goko.Aspects.controllers.HomeController.*())")
+    private void homeLoggerPointCut() {}
+
+    @Pointcut("execution(String com.goko.Aspects.services.HomeService.getGreeting(..))")
+    private void homeLoggerServicePointCut() {}
+
+    @AfterThrowing("homeLoggerMathPointCut()")
     public void loggerAfterThrowing(JoinPoint joinPoint) {
         String method = joinPoint.getSignature().getName();
         String args = Arrays.toString(joinPoint.getArgs());
         logger.info("AfterThrowing: " + method + " with " + args);
     }
 
-    @AfterReturning("execution(* com.goko.Aspects.controllers.HomeController.login())")
+    @AfterReturning("homeLoggerPointCut()")
     public void loggerAfterReturning(JoinPoint joinPoint) {
         String method = joinPoint.getSignature().getName();
         String args = Arrays.toString(joinPoint.getArgs());
         logger.info("AfterReturning: " + method + " with " + args);
     }
 
-    @Before("execution(String com.goko.Aspects.services.HomeService.getGreeting(..))")
+    @Before("homeLoggerServicePointCut()")
     public void loggerBefore(JoinPoint joinPoint) {
         String method = joinPoint.getSignature().getName();
         String args = Arrays.toString(joinPoint.getArgs());
         logger.info("Before order(2) - method: " + method + " with arguments: " + args);
     }
 
-    @After("execution(String com.goko.Aspects.services.HomeService.getGreeting(..))")
+    @After("homeLoggerServicePointCut()")
     public void loggerAfter(JoinPoint joinPoint) {
         String method = joinPoint.getSignature().getName();
         String args = Arrays.toString(joinPoint.getArgs());
         logger.info("After order(2) - method: " + method);
     }
 
-    @Around("execution(* com.goko.Aspects.controllers.HomeController.home())")
+    @Around("homeLoggerPointCut()")
     public Object loggerAround(ProceedingJoinPoint joinPoint) throws Throwable {
         // start stopwatch
         logger.info("Around: " + joinPoint.getSignature().getName());
