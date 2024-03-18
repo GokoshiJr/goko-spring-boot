@@ -28,6 +28,7 @@
         <module>Interceptores</module>
         <module>TimeInterceptor</module>
 		<module>Aspects</module>
+		<module>hibernate</module>		
 	</modules>
 
 	<dependencies>
