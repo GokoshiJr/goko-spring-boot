@@ -11,4 +11,7 @@ public interface PersonRepository extends CrudRepository<Person, Long> {
 
     @Query("SELECT p FROM Person p WHERE homeDirection LIKE %?1%")
     List<Person> findAllLikeDirection(String homeDirection);
+
+    @Query("SELECT p.name, p.homeDirection FROM Person p WHERE p.id = %?1%")
+    List<Object[]> findHomeDirectionByPersonId(Long Id);
 }
