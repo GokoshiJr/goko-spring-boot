@@ -7,7 +7,7 @@ import com.goko.hibernate.basic.entities.Person;
 import java.util.List;
 import java.util.Optional;
 
-public interface PersonRepository extends CrudRepository<Person, Long> {
+public interface PersonsRepository extends CrudRepository<Person, Long> {
     @Query(value = "SELECT * FROM Persons WHERE name LIKE %?1% LIMIT 1", nativeQuery = true)
     Optional<Person> findOneLikeName(String name);
 
