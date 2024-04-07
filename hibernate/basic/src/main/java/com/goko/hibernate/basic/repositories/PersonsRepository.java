@@ -8,6 +8,9 @@ import java.util.List;
 import java.util.Optional;
 
 public interface PersonsRepository extends CrudRepository<Person, Long> {
+    @Query(value="SELECT CONCAT(name, ' ', last_name) FROM Persons WHERE id = ?1", nativeQuery=true)
+    String getNameById(Long id);
+
     @Query(value = "SELECT * FROM Persons WHERE name LIKE %?1% LIMIT 1", nativeQuery = true)
     Optional<Person> findOneLikeName(String name);
 
@@ -17,6 +20,5 @@ public interface PersonsRepository extends CrudRepository<Person, Long> {
     List<Person> findAllLikeDirection(String homeDirection);
 
     @Query("SELECT p.name, p.homeDirection FROM Person p WHERE p.id = %?1%")
-    List<Object[]> findHomeDirectionByPersonId(Long Id);
-
+    List<Object[]> findHomeDirectionByPersonId(Long id);
 }

@@ -100,4 +100,16 @@ public class PersonsServiceImpl implements PersonsService {
         }
         return new ResponseEntity<>(res, HttpStatus.valueOf(200));
     }
+
+    public ResponseEntity<Map<String, Object>> getNameById(Long id) {
+        Map<String, Object> res = new HashMap<>();
+        var name = this.personRepository.getNameById(id);        
+        if (name == null) {
+            res.put("message", "No se encontro la persona con el id " + id);
+        } else {
+            res.put("name", name);
+        }
+        res.put("date", new Date().toString());        
+        return new ResponseEntity<>(res, HttpStatus.valueOf(200));
+    }
 }

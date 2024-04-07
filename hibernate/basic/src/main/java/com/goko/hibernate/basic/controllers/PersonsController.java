@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.goko.hibernate.basic.entities.Person;
 import com.goko.hibernate.basic.services.PersonsService;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 @RestController
 @RequestMapping("/api")
@@ -58,4 +60,10 @@ public class PersonsController {
     public ResponseEntity<?> deletePerson(@PathVariable Long id) {
         return this.personsService.deletePerson(id);
     }
+
+    @GetMapping("/persons/getName/{id}")
+    public ResponseEntity<Map<String, Object>> getMethodName(@PathVariable Long id) {
+        return this.personsService.getNameById(id);
+    }
+    
 }

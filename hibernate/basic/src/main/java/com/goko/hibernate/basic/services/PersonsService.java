@@ -21,4 +21,6 @@ public interface PersonsService {
     ResponseEntity<Map<String, Object>> updatePerson(Long id, Person person);
 
     ResponseEntity<Map<String, Object>> deletePerson(Long id);
+
+    ResponseEntity<Map<String, Object>> getNameById(Long id);
 }
