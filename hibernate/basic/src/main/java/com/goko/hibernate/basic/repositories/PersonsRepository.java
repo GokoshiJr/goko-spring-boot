@@ -3,11 +3,21 @@ package com.goko.hibernate.basic.repositories;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
+import com.goko.hibernate.basic.dto.PersonDto;
 import com.goko.hibernate.basic.entities.Person;
 import java.util.List;
 import java.util.Optional;
 
 public interface PersonsRepository extends CrudRepository<Person, Long> {
+    @Query("SELECT new com.goko.hibernate.basic.dto.PersonDto(p.name, p.homeDirection) FROM Person p")
+    List<PersonDto> findAllByDto();
+
+    @Query("SELECT new Person(p.name, p.homeDirection) FROM Person p")
+    List<Person> findAllByClass();
+
+    @Query("SELECT p, p.homeDirection FROM Person p")
+    List<Object[]> mix();
+
     @Query(value="SELECT CONCAT(name, ' ', last_name) FROM Persons WHERE id = ?1", nativeQuery=true)
     String getNameById(Long id);
 

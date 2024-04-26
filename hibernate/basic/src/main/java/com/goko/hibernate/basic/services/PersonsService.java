@@ -7,6 +7,11 @@ import org.springframework.http.ResponseEntity;
 import com.goko.hibernate.basic.entities.Person;
 
 public interface PersonsService {
+    ResponseEntity<Map<String, Object>> findAllByDto();
+
+    ResponseEntity<Map<String, Object>> findAllByClass();
+
+    ResponseEntity<Map<String, Object>> findAllMix();
 
     ResponseEntity<Map<String, Object>> findAll();
     

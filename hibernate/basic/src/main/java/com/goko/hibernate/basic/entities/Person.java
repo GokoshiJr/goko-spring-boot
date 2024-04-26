@@ -16,6 +16,12 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Person {
+
+    Person(String name, String homeDirection) {
+        this.name = name;
+        this.homeDirection = homeDirection;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

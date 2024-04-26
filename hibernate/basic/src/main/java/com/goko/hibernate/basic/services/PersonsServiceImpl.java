@@ -17,7 +17,34 @@ public class PersonsServiceImpl implements PersonsService {
     
     @Autowired
     PersonsRepository personRepository;
+    
+    @Override
+    public ResponseEntity<Map<String, Object>> findAllByDto() {
+        Map<String, Object> res = new HashMap<>();        
+        var persons = personRepository.findAllByDto();        
+        res.put("persons", persons);
+        res.put("date", new Date().toString());
+        return new ResponseEntity<>(res, HttpStatus.valueOf(200));
+    }
 
+    @Override
+    public ResponseEntity<Map<String, Object>> findAllByClass() {
+        Map<String, Object> res = new HashMap<>();        
+        var persons = personRepository.findAllByClass();        
+        res.put("persons", persons);
+        res.put("date", new Date().toString());
+        return new ResponseEntity<>(res, HttpStatus.valueOf(200));
+    }
+
+    @Override
+    public ResponseEntity<Map<String, Object>> findAllMix() {
+        Map<String, Object> res = new HashMap<>();        
+        var persons = personRepository.mix();        
+        res.put("persons", persons);
+        res.put("date", new Date().toString());
+        return new ResponseEntity<>(res, HttpStatus.valueOf(200));
+    }
+    
     public ResponseEntity<Map<String, Object>> findAll() {
         Map<String, Object> res = new HashMap<>();        
         var persons = personRepository.findAll();        
@@ -112,4 +139,5 @@ public class PersonsServiceImpl implements PersonsService {
         res.put("date", new Date().toString());        
         return new ResponseEntity<>(res, HttpStatus.valueOf(200));
     }
+
 }

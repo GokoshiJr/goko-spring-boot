@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.goko.hibernate.basic.entities.Person;
 import com.goko.hibernate.basic.services.PersonsService;
-import org.springframework.web.bind.annotation.RequestParam;
 
 
 @RestController
@@ -25,6 +24,21 @@ public class PersonsController {
 
     @Autowired
     PersonsService personsService;
+
+    @GetMapping("/personsDto")
+    private ResponseEntity<Map<String, Object>> findAllDto() {
+        return this.personsService.findAllByDto();
+    }
+
+    @GetMapping("/personsClass")
+    private ResponseEntity<Map<String, Object>> findAllClass() {
+        return this.personsService.findAllByClass();
+    }
+
+    @GetMapping("/personsMix")
+    private ResponseEntity<Map<String, Object>> findAllMix() {
+        return this.personsService.findAllMix();
+    }
 
     @GetMapping("/persons")
     private ResponseEntity<Map<String, Object>> findAll() {
@@ -37,27 +51,27 @@ public class PersonsController {
     }
 
     @GetMapping("/persons/name/{personName}")
-    private ResponseEntity<?> findPersonByLikeName(@PathVariable String personName) {
+    private ResponseEntity<Map<String, Object>> findPersonByLikeName(@PathVariable String personName) {
         return this.personsService.findPersonByLikeName(personName);
     }
 
     @GetMapping("/persons/homeDirection/{personId}")
-    private ResponseEntity<?> findHomeDirectionByPersonId(@PathVariable Long personId) {
+    private ResponseEntity<Map<String, Object>> findHomeDirectionByPersonId(@PathVariable Long personId) {
         return this.personsService.findHomeDirectionByPersonId(personId);
     }
 
     @PostMapping("/persons")
-    private ResponseEntity<?> createPerson(@RequestBody Person person) {
+    private ResponseEntity<Map<String, Object>> createPerson(@RequestBody Person person) {
         return this.personsService.createPerson(person);
     }
 
     @PutMapping("/persons/{id}")
-    public ResponseEntity<?> updatePerson(@PathVariable Long id, @RequestBody Person person) {
+    public ResponseEntity<Map<String, Object>> updatePerson(@PathVariable Long id, @RequestBody Person person) {
         return this.personsService.updatePerson(id, person);
     }
 
     @DeleteMapping("/persons/{id}")
-    public ResponseEntity<?> deletePerson(@PathVariable Long id) {
+    public ResponseEntity<Map<String, Object>> deletePerson(@PathVariable Long id) {
         return this.personsService.deletePerson(id);
     }
 
