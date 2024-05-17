@@ -18,6 +18,7 @@
 	<packaging>pom</packaging>
 	<modules>
 		<module>basic</module>
+		<module>associations</module>
 	</modules>
 	<dependencies>
 		 <dependency>
