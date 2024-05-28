@@ -26,7 +26,8 @@ public class Invoice {
     
     private Long total;
     
-    @ManyToOne
+    /* @JoinColumn(name = "id_customer") para especificar el nombre de la foreign key manualmente */
+    @ManyToOne 
     private Customer customer;
 
     @Embedded
