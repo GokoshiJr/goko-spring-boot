@@ -9,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import com.goko.hibernate.associations.entities.Address;
 import com.goko.hibernate.associations.entities.Customer;
 import com.goko.hibernate.associations.entities.Invoice;
 import com.goko.hibernate.associations.repositories.CustomerRepository;
@@ -87,6 +88,26 @@ public class CustomerServiceImpl implements CustomerService {
         invoice.setCustomer(optionalCustomer.get());        
         this.invoiceRepository.save(invoice);
         res.put("message", "Invoice saved to User " + userId + " successfull");
+        return new ResponseEntity<>(res, HttpStatus.valueOf(200));        
+    }
+
+    @Override
+    public ResponseEntity<Map<String, Object>> createAddress(Long userId, Address address) {
+        Map<String, Object> res = new HashMap<>();
+        res.put("date", new Date().toString());
+
+        var optionalCustomer = this.customerRepository.findById(userId);
+
+        if (optionalCustomer.isEmpty()) {
+            res.put("message", "User " + userId + " not found to create Address");
+            return new ResponseEntity<>(res, HttpStatus.valueOf(400));
+        }
+
+        var customer = optionalCustomer.get();        
+        customer.getAddresses().add(address);
+        this.customerRepository.save(customer);
+
+        res.put("message", "Address saved to User " + userId + " successfull");
         return new ResponseEntity<>(res, HttpStatus.valueOf(200));        
     }
 }

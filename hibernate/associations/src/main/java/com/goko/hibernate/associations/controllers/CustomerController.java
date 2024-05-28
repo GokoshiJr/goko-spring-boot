@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.goko.hibernate.associations.entities.Address;
 import com.goko.hibernate.associations.entities.Customer;
 import com.goko.hibernate.associations.entities.Invoice;
 import com.goko.hibernate.associations.services.CustomerService;
@@ -51,4 +52,8 @@ public class CustomerController {
         return this.customerService.createInvoice(id, invoice);
     }
     
+    @PostMapping("/customers/{id}/address")
+    private ResponseEntity<Map<String, Object>> createAddress(@PathVariable Long id, @RequestBody Address address) {
+        return this.customerService.createAddress(id, address);
+    }
 }
