@@ -1,7 +1,6 @@
 package com.goko.Web.models.dtos;
 
 import lombok.Data;
-import lombok.RequiredArgsConstructor;
 
 @Data
 public class ParamDto {

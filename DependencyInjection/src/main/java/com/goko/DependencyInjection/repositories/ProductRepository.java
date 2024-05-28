@@ -2,7 +2,6 @@ package com.goko.DependencyInjection.repositories;
 
 import com.goko.DependencyInjection.models.Product;
 
-import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Repository;
 
 import java.util.Arrays;

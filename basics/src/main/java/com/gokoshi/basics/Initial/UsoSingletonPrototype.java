@@ -18,5 +18,7 @@ public class UsoSingletonPrototype {
 
         if (Julio == Ale) System.out.println("Apuntan al mismo objeto");
         else System.out.println("Son objetos distintos");
+
+        context.close();
     }
 }

@@ -1,7 +1,6 @@
 package com.goko.Interceptores;
 
 import com.goko.Interceptores.interceptors.BasicInterceptor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.servlet.HandlerInterceptor;

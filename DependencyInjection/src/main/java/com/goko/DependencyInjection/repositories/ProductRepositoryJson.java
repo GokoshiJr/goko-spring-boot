@@ -2,10 +2,8 @@ package com.goko.DependencyInjection.repositories;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.goko.DependencyInjection.models.Product;
-import org.springframework.context.annotation.Primary;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
-import org.springframework.stereotype.Repository;
 
 import java.io.IOException;
 import java.util.Arrays;

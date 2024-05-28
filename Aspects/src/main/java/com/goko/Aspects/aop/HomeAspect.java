@@ -49,7 +49,7 @@ public class HomeAspect {
     @After("homeLoggerServicePointCut()")
     public void loggerAfter(JoinPoint joinPoint) {
         String method = joinPoint.getSignature().getName();
-        String args = Arrays.toString(joinPoint.getArgs());
+        /* String args = Arrays.toString(joinPoint.getArgs()); */
         logger.info("After order(2) - method: " + method);
     }
 
